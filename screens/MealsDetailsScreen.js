@@ -19,7 +19,7 @@ export default function MealsDetails({navigation, route}) {
       return <Button title="Press me " onPress={headerButtonPressHandler}/>
     }
   })
- },[navigation, headerButtonPressHandler])
+ },[navigation, headerButtonPressHandler]);
 
     return (
       <ScrollView style={styles.rootContainer}>
