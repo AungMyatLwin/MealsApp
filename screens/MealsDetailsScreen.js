@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, View, } from "react-native";
+import { useLayoutEffect } from "react";
+import { Button, Image, StyleSheet, Text, View, } from "react-native";
 
 import List from "../components/MealDetail/List";
 import MealDetail from "../components/MealDetails";
@@ -9,6 +10,14 @@ import { ScrollView } from "react-native-web";
 export default function MealsDetails({navigation, route}) {
  const id=route.params.id;
  const selectedMeal= MEALS.find((meal)=>meal.id===id);
+ const headerButtonPressHandler=()=>console.log('Pressed');
+ useLayoutEffect(()=>{
+  navigation.setOptions({
+    headerRight:()=>{
+      return <Button title="Press me " onPress={headerButtonPressHandler}/>
+    }
+  },[navigation, headerButtonPressHandler])
+ })
     return (
       <ScrollView style={styles.rootContainer}>
        <Image source={{uri:selectedMeal.imageUrl}} style={styles.image} />
