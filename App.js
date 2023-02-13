@@ -6,6 +6,7 @@ import { createNativeStackNavigator} from '@react-navigation/native-stack';
 import Categories from './screens/CategoriesScreen';
 import MealsOverview from './screens/MealsOverview';
 import { StatusBar } from 'expo-status-bar';
+import MealsDetails from './screens/MealsDetailsScreen';
 
 const Stack=createNativeStackNavigator();
 // explain the react navigation 
@@ -24,13 +25,7 @@ export default function App() {
       <Stack.Screen name="MealsCategories" component={Categories} options={{
        title:"All Categories"}}/>
       <Stack.Screen name="MealsOverview" component={MealsOverview}/>
-      {/* // options={({ route , navigation})=>{ */}
-      {/* //   const catID= route.params.categoryId;
-      //   return{
-      //     title:catID
-      //   }}
-      // } */}
-
+      <Stack.Screen name="MealsDetails" component={MealsDetails}/>
     </Stack.Navigator>
   </NavigationContainer>
     </>

@@ -10,6 +10,7 @@ function MealsOverview({route, navigation}){
         return mealItem.categoryIds.indexOf(catId)>=0;
     });
     
+
     useLayoutEffect(()=>{const categoryTitle= CATEGORIES.find((category)=>category.id===catId).title;
         navigation.setOptions({
             title:categoryTitle
@@ -23,10 +24,14 @@ function MealsOverview({route, navigation}){
             imageUrl:item.imageUrl,
             affordability: item.affordability,
             complexity: item.complexity,
-            duration: item.duration
+            duration: item.duration,
+            onpress:onPress,
         }
+        function onPress(){
+            return navigation.navigate('MealsDetails',{id:item.id})
+            }
         // console.log(imageUrl)
-        return<MealItem {...mealItemProps}/>
+        return<MealItem {...mealItemProps} />
     }
 
     return (<View style={styles.container}>

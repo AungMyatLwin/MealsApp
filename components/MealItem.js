@@ -1,18 +1,22 @@
 import { Image, StyleSheet, Text, View, Pressable, Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-function MealItem({title, imageUrl, duration,complexity, affordability }){
+import MealDetails from '../components/MealDetails'; 
+function MealItem({title, imageUrl, duration,complexity, affordability,onpress}){
+    // alternative ways of navigation
+    // const navigation= useNavigation();
+    // navigation.navigate('MealsDetails',{
+    //     mealid:id
+    // })
+
     return <View style={styles.mealItem}>
-        <Pressable onPress={()=>console.log("pressed")} android_ripple={{color:"#ccc"}} style={({pressed})=>{pressed?styles.pressed:null}}>
+        <Pressable onPress={onpress}  android_ripple={{color:"#ccc"}} style={({pressed})=>{pressed?styles.pressed:null}}>
        <View style={styles.innerContainer}>
        <View>
             <Image source={{uri:imageUrl}} style={styles.imageStyle}/>
             <Text style={styles.title}>{title}</Text>
         </View>
-        <View style={styles.details}>
-            <Text style={styles.detailItems}>{duration}m</Text>
-            <Text style={styles.detailItems}>{complexity.toUpperCase()}</Text>
-            <Text style={styles.detailItems}>{affordability.toUpperCase()}</Text>
-        </View>
+        <MealDetails duration={duration} affordability={affordability} complexity={complexity}/>
        </View>
     </Pressable>
     </View>
@@ -48,16 +52,7 @@ const styles=StyleSheet.create({
         textAlign:"center",
         margin:8
     },
-    details:{
-        flexDirection:"row",
-        alignItems: "center",
-        padding:8,
-        justifyContent: "center"
-    },
-    detailItems:{
-        marginHorizontal: 4,
-        fontSize:12,
-    },
+   
     pressed:{
         opacity:0.8
     }
