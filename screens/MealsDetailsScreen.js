@@ -1,3 +1,4 @@
+
 import { useLayoutEffect } from "react";
 import { Button, Image, StyleSheet, Text, View, } from "react-native";
 
@@ -6,17 +7,21 @@ import MealDetail from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
 import { MEALS } from "../data/dummy-data";
 import { ScrollView } from "react-native-web";
+import IconButton from "../components/iconButton";
 
 export default function MealsDetails({navigation, route}) {
+  
  const id=route.params.id;
  const selectedMeal= MEALS.find((meal)=>meal.id===id);
 
- const headerButtonPressHandler=()=>console.log('Pressed');
-
+ const headerButtonPressHandler=()=>{
+  
+ }
+ 
  useLayoutEffect(()=>{
   navigation.setOptions({
     headerRight:()=>{
-      return <Button title="Press me " onPress={headerButtonPressHandler}/>
+      return <IconButton icon={'star'} color={"white"} onPress={headerButtonPressHandler}/>
     }
   })
  },[navigation, headerButtonPressHandler]);
