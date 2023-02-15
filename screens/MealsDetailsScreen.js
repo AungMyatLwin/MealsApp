@@ -1,12 +1,11 @@
 
 import { useLayoutEffect } from "react";
-import { Button, Image, StyleSheet, Text, View, } from "react-native";
+import { Button, Image, StyleSheet, Text, View,ScrollView  } from "react-native";
 
 import List from "../components/MealDetail/List";
 import MealDetail from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
 import { MEALS } from "../data/dummy-data";
-import { ScrollView } from "react-native-web";
 import IconButton from "../components/iconButton";
 
 export default function MealsDetails({navigation, route}) {
