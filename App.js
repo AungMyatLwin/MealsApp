@@ -11,6 +11,7 @@ import MealsDetails from './screens/MealsDetailsScreen';
 const Stack=createNativeStackNavigator();
 // explain the react navigation 
 export default function App() {
+  
   return <>
   <StatusBar style='light'/>
   <NavigationContainer>
@@ -27,6 +28,7 @@ export default function App() {
       <Stack.Screen name="MealsOverview" component={MealsOverview}/>
       <Stack.Screen name="MealsDetails" component={MealsDetails} />
     </Stack.Navigator>
+    
   </NavigationContainer>
     </>
 }
