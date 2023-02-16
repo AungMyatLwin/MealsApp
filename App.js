@@ -9,6 +9,7 @@ import MealsOverview from './screens/MealsOverview';
 import { StatusBar } from 'expo-status-bar';
 import MealsDetails from './screens/MealsDetailsScreen';
 import Favourite from './components/Favourite';
+import FavouriteContextProvider from './store/context/favourites-context';
 
 const Stack=createNativeStackNavigator();
 const Drawer= createDrawerNavigator();
@@ -41,8 +42,8 @@ export default function App() {
   
   return <>
   <StatusBar style='light'/>
+  <FavouriteContextProvider>
   <NavigationContainer>
-    
     <Stack.Navigator screenOptions={{
        headerStyle:{
         backgroundColor:'#351401'
@@ -58,7 +59,9 @@ export default function App() {
         title:"About The Meal"}} />
     </Stack.Navigator>
   </NavigationContainer>
-    </>
+  
+  </FavouriteContextProvider>  
+  </>
 }
 
 const styles = StyleSheet.create({
