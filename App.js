@@ -1,14 +1,16 @@
-import { StyleSheet, Text} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import {NavigationContainer} from '@react-navigation/native';
-import { createNativeStackNavigator} from '@react-navigation/native-stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import{MaterialIcons} from '@expo/vector-icons'
-import Categories from './screens/CategoriesScreen';
-import MealsOverview from './screens/MealsOverview';
 import { StatusBar } from 'expo-status-bar';
-import MealsDetails from './screens/MealsDetailsScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { MaterialIcons } from '@expo/vector-icons'
+
+import Categories from './screens/CategoriesScreen';
 import Favourite from './components/Favourite';
+import MealsOverview from './screens/MealsOverview';
+import MealsDetails from './screens/MealsDetailsScreen';
+
 import FavouriteContextProvider from './store/context/favourites-context';
 
 const Stack=createNativeStackNavigator();
