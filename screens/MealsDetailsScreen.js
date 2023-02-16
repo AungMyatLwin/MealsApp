@@ -10,8 +10,8 @@ import IconButton from "../components/iconButton";
 import { MEALS } from "../data/dummy-data";
 import {FavouritesContext} from "../store/context/favourites-context";
 
-
 export default function MealsDetails({navigation, route}) {
+
  const favouriteMealContext= useContext(FavouritesContext);
  const id=route.params.id;
  const selectedMeal= MEALS.find((meal)=>meal.id===id);
@@ -33,7 +33,7 @@ export default function MealsDetails({navigation, route}) {
       return <IconButton icon={mealIsFavourite ? 'heart': 'star'} color={"white"} onPress={changeFavouriteStatusHandler}/>
     }
   })
- },[changeFavouriteStatusHandler, navigation,mealIsFavourite]);
+ },[navigation,changeFavouriteStatusHandler]);
 
     return (
       <ScrollView style={styles.rootContainer}>
