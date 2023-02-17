@@ -10,20 +10,27 @@ import IconButton from "../components/iconButton";
 import { MEALS } from "../data/dummy-data";
 import {FavouritesContext} from "../store/context/favourites-context";
 
+// import {addFavourite, removeFavourite} from "../store/redux/favourites";
+
 export default function MealsDetails({navigation, route}) {
 
  const favouriteMealContext= useContext(FavouritesContext);
+//  const favouriteMealIds= useSelector((state)=> state.favouriteMeals.ids)
  const id=route.params.id;
  const selectedMeal= MEALS.find((meal)=>meal.id===id);
  const mealIsFavourite= favouriteMealContext.ids.includes(id);
+//   const mealIsFavourite= favouriteMealIds.ids.includes(id);
+// const dispatch= useDispatch();
 
  function changeFavouriteStatusHandler(){
   if(mealIsFavourite)
   {
     favouriteMealContext.removeFavourite(id);
+    // dispatch(removeFavourite({id:id}))
   }
   else{
     favouriteMealContext.addFavourite(id);
+    // dispatch(addFavourite({id:id}))
   }
  }
  
